@@ -4,7 +4,9 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/shuangluoxss/fastxlsx/blob/main/LICENSE)
 
 **A lightweight, high-performance Python library for blazing-fast XLSX I/O operations.**  
-Powered by Rust's [Calamine](https://github.com/tafia/calamine) (reading) and [Rust-XlsxWriter](https://github.com/jmcnamara/rust_xlsxwriter) (writing), with seamless Python integration via `PyO3`.
+Powered by Rust's [Calamine](https://github.com/tafia/calamine) (reading) and [Rust-XlsxWriter](https://github.com/jmcnamara/rust_xlsxwriter) (writing), with seamless Python integration via [PyO3](https://github.com/PyO3/pyo3).
+
+Docs available [Here](https://fastxlsx.readthedocs.io).
 
 ## ✨ Key Features
 
@@ -31,21 +33,21 @@ Full details could be obtained from [benchmarks](./benchmarks).
 
 ### 📝 Writing Performance (Lower is Better)
 
-| library              | Mixed Data (ms) | 5000x10 Matrix(ms) | Batch Write (ms) |
-| :------------------- | :-------------- | :----------------- | :--------------- |
-| **fastxlsx**         | 0.97(1.00x)     | 62.06(1.00x)       | 7.77(1.00x)      |
-| pyexcelerate         | 2.65(2.73x)     | 256.89(4.14x)      | 50.33(6.48x)     |
-| xlsxwriter           | 5.03(5.19x)     | 297.14(4.79x)      | 61.25(7.89x)     |
-| openpyxl(write_only) | 5.91(6.09x)     | 422.22(6.80x)      | 83.89(10.80x)    |
-| openpyxl             | 6.25(6.44x)     | 737.30(11.88x)     | 83.65(10.77x)    |
+| library              | Mixed Data (ms) | 5000x10 Matrix (ms) | Batch Write (ms) |
+| :------------------- | :-------------- | :------------------ | :--------------- |
+| **fastxlsx**         | 0.97(1.00x)     | 62.06(1.00x)        | 7.77(1.00x)      |
+| pyexcelerate         | 2.65(2.73x)     | 256.89(4.14x)       | 50.33(6.48x)     |
+| xlsxwriter           | 5.03(5.19x)     | 297.14(4.79x)       | 61.25(7.89x)     |
+| openpyxl(write_only) | 5.91(6.09x)     | 422.22(6.80x)       | 83.89(10.80x)    |
+| openpyxl             | 6.25(6.44x)     | 737.30(11.88x)      | 83.65(10.77x)    |
 
 ### 📖 Reading Performance (Lower is Better)
 
-| library         | Mixed Data (ms) | 5000x10 Matrix(ms) | Batch Write (ms) |
-| :-------------- | :-------------- | :----------------- | :--------------- |
-| **fastxlsx**    | 0.24(1.00x)     | 24.22(1.00x)       | 3.14(1.00x)      |
-| pycalamine      | 0.32(1.30x)     | 33.51(1.38x)       | 28.25(8.99x)     |
-| openpyxl        | 3.93(16.07x)    | 330.63(13.65x)     | 62.71(19.96x)    |
+| library         | Mixed Data (ms) | 5000x10 Matrix (ms) | Batch Write (ms) |
+| :-------------- | :-------------- | :------------------ | :--------------- |
+| **fastxlsx**    | 0.24(1.00x)     | 24.22(1.00x)        | 3.14(1.00x)      |
+| python-calamine | 0.32(1.30x)     | 33.51(1.38x)        | 28.25(8.99x)     |
+| openpyxl        | 3.93(16.07x)    | 330.63(13.65x)      | 62.71(19.96x)    |
 
 ⚠️ **Windows Users Note**: Batch operations use `multiprocessing.Pool`, which may underperform due to `spawn` method limitations.
 
@@ -146,7 +148,7 @@ print(
 )
 ```
 
-_For full details, see [docs](./docs)._
+_For more details, see [Advanced Usage](https://fastxlsx.readthedocs.io/en/latest/advanced_usage.html)._
 
 ## 📖 Motivation
 

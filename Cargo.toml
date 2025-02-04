@@ -14,7 +14,7 @@ chrono = "0.4.39"
 indexmap = { version = "2.7.0", features = ["rayon"] }
 ndarray = "0.16.1"
 numpy = "0.23.0"
-pyo3 = { version = "0.23.3", features = ["chrono", "indexmap"] }
+pyo3 = { version = "0.23.4", features = ["chrono", "indexmap"] }
 rayon = "1.10.0"
 rust_xlsxwriter = { version = "0.80.0", features = ["chrono", "zlib", "ryu"] }
 
