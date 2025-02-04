@@ -1,0 +1,26 @@
+[package]
+name = "fastxlsx"
+version = "0.2.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "fastxlsx"
+crate-type = ["cdylib"]
+
+[dependencies]
+calamine = { version = "0.26.1", features = ["dates"] }
+chrono = "0.4.39"
+indexmap = { version = "2.7.0", features = ["rayon"] }
+ndarray = "0.16.1"
+numpy = "0.23.0"
+pyo3 = { version = "0.23.3", features = ["chrono", "indexmap"] }
+rayon = "1.10.0"
+rust_xlsxwriter = { version = "0.80.0", features = ["chrono", "zlib", "ryu"] }
+
+[profile.release]
+lto = true # Enables link to optimizations
+strip = true # Remove debug symbols
+codegen-units = 1 # Compile crates one after another so the compiler can optimize better
+panic = "abort" # Strip expensive panic clean-up logic
+opt-level = 3 # all optimizations

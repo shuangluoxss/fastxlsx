@@ -1,0 +1,38 @@
+[build-system]
+requires = ["maturin>=1.8,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "fastxlsx"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version"]
+dependencies = ["numpy"]
+
+authors = [{ name = "shuangluoxss", email = "shuangluoxss@qq.com" }]
+maintainers = [{ name = "shuangluoxss", email = "shuangluoxss@qq.com" }]
+description = "A high-performance Excel XLSX reader/writer for Python built with Rust."
+readme = "README.md"
+license = "MIT"
+keywords = ["excel", "xlsx"]
+
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+
+
+[project.optional-dependencies]
+bench = [
+    "pytest",
+    "pytest-benchmark",
+    "openpyxl",
+    "xlsxwriter",
+    "pyexcelerate",
+    "python-calamine",
+    "pylightxl",
+]
+dev = ["pytest", "ruff>=0.8.4"]
